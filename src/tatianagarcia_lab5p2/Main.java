@@ -5,11 +5,16 @@
 package tatianagarcia_lab5p2;
 
 import java.awt.Color;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import javax.swing.DefaultListModel;
 import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -54,9 +59,15 @@ public class Main extends javax.swing.JFrame {
         tf_agmental = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         tf_vida = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jl_regresar7 = new javax.swing.JLabel();
+        jb_add = new javax.swing.JButton();
+        jl_regresar = new javax.swing.JLabel();
         jf_listarpersonajes = new javax.swing.JFrame();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jt_personajes = new javax.swing.JTree();
+        jl_regresar1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -121,28 +132,28 @@ public class Main extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Puntos de vida:");
 
-        jButton1.setBackground(new java.awt.Color(204, 0, 0));
-        jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(204, 204, 204));
-        jButton1.setText("Agregar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jb_add.setBackground(new java.awt.Color(204, 0, 0));
+        jb_add.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jb_add.setForeground(new java.awt.Color(204, 204, 204));
+        jb_add.setText("Agregar");
+        jb_add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jb_addActionPerformed(evt);
             }
         });
 
-        jl_regresar7.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
-        jl_regresar7.setForeground(new java.awt.Color(255, 255, 255));
-        jl_regresar7.setText("<< Regresar");
-        jl_regresar7.addMouseListener(new java.awt.event.MouseAdapter() {
+        jl_regresar.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        jl_regresar.setForeground(new java.awt.Color(255, 255, 255));
+        jl_regresar.setText("<< Regresar");
+        jl_regresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jl_regresar7MouseClicked(evt);
+                jl_regresarMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jl_regresar7MouseEntered(evt);
+                jl_regresarMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jl_regresar7MouseExited(evt);
+                jl_regresarMouseExited(evt);
             }
         });
 
@@ -189,9 +200,9 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(151, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jl_regresar7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jl_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(jb_add)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -228,8 +239,8 @@ public class Main extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jl_regresar7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jb_add)
+                            .addComponent(jl_regresar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())))
         );
 
@@ -244,15 +255,85 @@ public class Main extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        jPanel5.setBackground(new java.awt.Color(0, 0, 0));
+
+        jPanel6.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Listar Personaje");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Personajes");
+        jt_personajes.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_personajes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_personajesMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jt_personajes);
+
+        jl_regresar1.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        jl_regresar1.setForeground(new java.awt.Color(255, 255, 255));
+        jl_regresar1.setText("<< Regresar");
+        jl_regresar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_regresar1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jl_regresar1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jl_regresar1MouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jl_regresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jl_regresar1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jf_listarpersonajesLayout = new javax.swing.GroupLayout(jf_listarpersonajes.getContentPane());
         jf_listarpersonajes.getContentPane().setLayout(jf_listarpersonajesLayout);
         jf_listarpersonajesLayout.setHorizontalGroup(
             jf_listarpersonajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jf_listarpersonajesLayout.setVerticalGroup(
             jf_listarpersonajesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -294,6 +375,11 @@ public class Main extends javax.swing.JFrame {
         jb_listarp.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jb_listarp.setForeground(new java.awt.Color(204, 204, 204));
         jb_listarp.setText("Listar Personajes");
+        jb_listarp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_listarpActionPerformed(evt);
+            }
+        });
 
         jb_batalla.setBackground(new java.awt.Color(0, 0, 204));
         jb_batalla.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -344,8 +430,8 @@ public class Main extends javax.swing.JFrame {
         agregarpersonaje();
     }//GEN-LAST:event_jb_agregarpActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (!"".equals(tf_nombre.getText())
+    private void jb_addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_addActionPerformed
+                if (!"".equals(tf_nombre.getText())
                     &&!"".equals(tf_poder.getText())
                     &&!"".equals(tf_debilidad.getText())
                     &&!"".equals(tf_agmental.getText())
@@ -359,6 +445,45 @@ public class Main extends javax.swing.JFrame {
                         Double.parseDouble(tf_fuerza.getText()), Double.parseDouble(tf_agfisica.getText()),
                         Double.parseDouble(tf_agmental.getText()), Double.parseDouble(tf_vida.getText())   ));
                 
+                
+                //Añadir al arbol
+                DefaultTreeModel m = (DefaultTreeModel) jt_personajes.getModel();
+                DefaultMutableTreeNode raiz
+                        = (DefaultMutableTreeNode) m.getRoot();
+                
+                
+                DefaultMutableTreeNode nodo_personaje;
+                nodo_personaje
+                        = new DefaultMutableTreeNode(
+                                new Personajes(tf_nombre.getText(), tf_poder.getText(),
+                        tf_debilidad.getText(), cb_universo.getSelectedItem().toString(),
+                          Double.parseDouble(tf_fuerza.getText()), Double.parseDouble(tf_agfisica.getText()),
+                        Double.parseDouble(tf_agmental.getText()), Double.parseDouble(tf_vida.getText()))
+                                );
+                String universo = cb_universo.getSelectedItem().toString();
+                
+                int centinela = -1;           
+                for (int i = 0; i < raiz.getChildCount(); i++) {
+                    if (raiz.getChildAt(i).toString().
+                            equals(universo)) {
+                        
+                        ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(nodo_personaje);
+                        centinela = 1;
+                    } //fin if
+                } //fin for  
+
+                if (centinela == -1) {
+                    DefaultMutableTreeNode u
+                            = new DefaultMutableTreeNode(universo);
+                    
+                    u.add(nodo_personaje);
+                    raiz.add(u);
+                }  // fin if
+                
+                
+                m.reload();
+                
+                //set text
                 tf_poder.setText("");
                 tf_debilidad.setText("");
                 tf_agmental.setText("");
@@ -366,23 +491,69 @@ public class Main extends javax.swing.JFrame {
                 tf_fuerza.setText("");
                 tf_vida.setText("");
                 tf_nombre.setText("");
+                
+                
             }else{
                 JOptionPane.showMessageDialog(null, "Llenar todos los campos");
             }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jb_addActionPerformed
 
-    private void jl_regresar7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_regresar7MouseClicked
-        jl_regresar7.setForeground(Color.white);
+    private void jl_regresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_regresarMouseClicked
+        jl_regresar.setForeground(Color.white);
+        jf_agregarpersonajes.dispose();
         regresarmain();
-    }//GEN-LAST:event_jl_regresar7MouseClicked
+    }//GEN-LAST:event_jl_regresarMouseClicked
 
-    private void jl_regresar7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_regresar7MouseEntered
-        jl_regresar7.setForeground(Color.blue);
-    }//GEN-LAST:event_jl_regresar7MouseEntered
+    private void jl_regresarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_regresarMouseEntered
+        jl_regresar.setForeground(Color.blue);
+    }//GEN-LAST:event_jl_regresarMouseEntered
 
-    private void jl_regresar7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_regresar7MouseExited
-        jl_regresar7.setForeground(Color.white);
-    }//GEN-LAST:event_jl_regresar7MouseExited
+    private void jl_regresarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_regresarMouseExited
+        jl_regresar.setForeground(Color.white);
+    }//GEN-LAST:event_jl_regresarMouseExited
+
+    private void jb_listarpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_listarpActionPerformed
+        listarpersonaje();
+    }//GEN-LAST:event_jb_listarpActionPerformed
+
+    private void jt_personajesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_personajesMouseClicked
+        if (evt.isMetaDown()) {
+            //seleccionar un nodo con click derecho
+            int row = jt_personajes.getClosestRowForLocation(
+                    evt.getX(), evt.getY());
+            jt_personajes.setSelectionRow(row);
+            Object v1
+                    = jt_personajes.getSelectionPath().
+                    getLastPathComponent();
+            nodo_seleccionado = (DefaultMutableTreeNode) v1;
+            if (nodo_seleccionado.getUserObject() instanceof Personajes) {
+                personaje_seleccionado
+                        = (Personajes) nodo_seleccionado.
+                        getUserObject();
+//                menu_popup.show(evt.getComponent(),
+//                        evt.getX(), evt.getY());
+            }else{
+                
+//                pm_lista.show(evt.getComponent(),
+//                        evt.getX(), evt.getY());
+            }
+
+        }
+    }//GEN-LAST:event_jt_personajesMouseClicked
+
+    private void jl_regresar1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_regresar1MouseClicked
+        jl_regresar1.setForeground(Color.white);
+        jf_listarpersonajes.dispose();
+        regresarmain();
+    }//GEN-LAST:event_jl_regresar1MouseClicked
+
+    private void jl_regresar1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_regresar1MouseEntered
+        jl_regresar1.setForeground(Color.blue);
+    }//GEN-LAST:event_jl_regresar1MouseEntered
+
+    private void jl_regresar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_regresar1MouseExited
+        jl_regresar1.setForeground(Color.white);
+    }//GEN-LAST:event_jl_regresar1MouseExited
 
     /**
      * @param args the command line arguments
@@ -396,13 +567,26 @@ public class Main extends javax.swing.JFrame {
         //jf_agregarpersonajes.setModal(true);//hacer prioridad la ventana
         jf_agregarpersonajes.setVisible(true);
     }
+    
+    private void listarpersonaje (){
+        this.dispose();
+        
+        jf_listarpersonajes.pack();
+        jf_listarpersonajes.setLocationRelativeTo(this);
+        jf_listarpersonajes.setExtendedState(MAXIMIZED_BOTH);
+        jf_listarpersonajes.setVisible(true);
+    }
+    
     private void regresarmain(){
-        jf_agregarpersonajes.dispose();
         
         this.pack();
         this.setLocationRelativeTo(this);
         this.setExtendedState(MAXIMIZED_BOTH);
         this.setVisible(true);
+    }
+    
+    private void infoarbol(){
+        
     }
     
     public static void main(String args[]) {
@@ -438,12 +622,14 @@ public class Main extends javax.swing.JFrame {
     }
     
     ArrayList<Personajes> personaje = new ArrayList();
+    DefaultMutableTreeNode nodo_seleccionado;
+    Personajes personaje_seleccionado;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cb_universo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -456,12 +642,18 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jb_add;
     private javax.swing.JButton jb_agregarp;
     private javax.swing.JButton jb_batalla;
     private javax.swing.JButton jb_listarp;
     private javax.swing.JFrame jf_agregarpersonajes;
     private javax.swing.JFrame jf_listarpersonajes;
-    private javax.swing.JLabel jl_regresar7;
+    private javax.swing.JLabel jl_regresar;
+    private javax.swing.JLabel jl_regresar1;
+    private javax.swing.JTree jt_personajes;
     private javax.swing.JTextField tf_agfisica;
     private javax.swing.JTextField tf_agmental;
     private javax.swing.JTextField tf_debilidad;

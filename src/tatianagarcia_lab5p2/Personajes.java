@@ -90,12 +90,17 @@ public class Personajes {
         this.vida = vida;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Personajes{" + "nombre=" + nombre + ", poder=" + poder + 
+//                ", debilidad=" + debilidad + ", universo=" + universo + 
+//                ", fuerza=" + fuerza + ", ag_fisica=" + ag_fisica + 
+//                ", ag_mental=" + ag_mental + ", vida=" + vida + '}';
+//    }
+
     @Override
     public String toString() {
-        return "Personajes{" + "nombre=" + nombre + ", poder=" + poder + 
-                ", debilidad=" + debilidad + ", universo=" + universo + 
-                ", fuerza=" + fuerza + ", ag_fisica=" + ag_fisica + 
-                ", ag_mental=" + ag_mental + ", vida=" + vida + '}';
+        return nombre+"";
     }
     
     
