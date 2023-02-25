@@ -452,6 +452,11 @@ public class Main extends javax.swing.JFrame {
         pm_crud.add(mi_listar);
 
         mi_modificar.setText("Modificar");
+        mi_modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_modificarActionPerformed(evt);
+            }
+        });
         pm_crud.add(mi_modificar);
 
         mi_eliminar.setText("Eliminar");
@@ -1271,6 +1276,41 @@ public class Main extends javax.swing.JFrame {
         }
             
     }//GEN-LAST:event_jb_fisicoActionPerformed
+
+    private void mi_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_modificarActionPerformed
+        agregarpersonaje();
+//        if (!"".equals(tf_nombre.getText())
+//                    &&!"".equals(tf_poder.getText())
+//                    &&!"".equals(tf_debilidad.getText())
+//                    &&!"".equals(tf_agmental.getText())
+//                    &&!"".equals(tf_agfisica.getText())
+//                    &&!"".equals(tf_fuerza.getText())
+//                    &&!"".equals(tf_vida.getText())   
+//                    &&!"".equals(cb_universo.getSelectedItem())  ) {
+//            
+//                personaje.add(new Personajes(tf_nombre.getText(), tf_poder.getText(),
+//                        tf_debilidad.getText(), cb_universo.getSelectedItem().toString(),
+//                        Double.parseDouble(tf_fuerza.getText()), Double.parseDouble(tf_agfisica.getText()),
+//                        Double.parseDouble(tf_agmental.getText()), Double.parseDouble(tf_vida.getText())   ));
+//                
+//                
+//                //Añadir al arbol
+//                DefaultTreeModel m = (DefaultTreeModel) jt_personajes.getModel();
+//                DefaultMutableTreeNode raiz
+//                        = (DefaultMutableTreeNode) m.getRoot();
+//                
+//                
+//                DefaultMutableTreeNode nodo_personaje;
+//                nodo_personaje
+//                        = new DefaultMutableTreeNode(
+//                                new Personajes(tf_nombre.getText(), tf_poder.getText(),
+//                        tf_debilidad.getText(), cb_universo.getSelectedItem().toString(),
+//                          Double.parseDouble(tf_fuerza.getText()), Double.parseDouble(tf_agfisica.getText()),
+//                        Double.parseDouble(tf_agmental.getText()), Double.parseDouble(tf_vida.getText()))
+//                                );
+//                String universo = cb_universo.getSelectedItem().toString();
+//                
+    }//GEN-LAST:event_mi_modificarActionPerformed
 
     /**
      * @param args the command line arguments
