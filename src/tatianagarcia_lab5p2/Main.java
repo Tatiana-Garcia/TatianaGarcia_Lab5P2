@@ -94,8 +94,18 @@ public class Main extends javax.swing.JFrame {
         jScrollPane6 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList<>();
         jb_game = new javax.swing.JButton();
+        jl_regresar2 = new javax.swing.JLabel();
         jf_game = new javax.swing.JFrame();
         jPanel9 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        ta_juego = new javax.swing.JTextArea();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        jLabel13 = new javax.swing.JLabel();
+        jToggleButton2 = new javax.swing.JToggleButton();
+        jToggleButton3 = new javax.swing.JToggleButton();
+        jl_personaje = new javax.swing.JLabel();
+        jl_regresar3 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -489,9 +499,19 @@ public class Main extends javax.swing.JFrame {
         });
 
         jList1.setModel(new DefaultListModel());
+        jList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList1MouseClicked(evt);
+            }
+        });
         jScrollPane5.setViewportView(jList1);
 
         jList2.setModel(new DefaultListModel());
+        jList2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jList2MouseClicked(evt);
+            }
+        });
         jScrollPane6.setViewportView(jList2);
 
         jb_game.setBackground(new java.awt.Color(255, 0, 51));
@@ -501,6 +521,21 @@ public class Main extends javax.swing.JFrame {
         jb_game.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jb_gameActionPerformed(evt);
+            }
+        });
+
+        jl_regresar2.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        jl_regresar2.setForeground(new java.awt.Color(255, 255, 255));
+        jl_regresar2.setText("<< Regresar");
+        jl_regresar2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_regresar2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jl_regresar2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jl_regresar2MouseExited(evt);
             }
         });
 
@@ -521,25 +556,29 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(cb_personaje2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
+                .addComponent(jl_regresar2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jb_game)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
             .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cb_personaje, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cb_personaje2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 48, Short.MAX_VALUE)
+                .addGap(18, 46, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane5)
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE))
                 .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(jb_game)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jb_game)
+                    .addComponent(jl_regresar2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -556,15 +595,93 @@ public class Main extends javax.swing.JFrame {
 
         jPanel9.setBackground(new java.awt.Color(0, 0, 0));
 
+        ta_juego.setColumns(20);
+        ta_juego.setRows(5);
+        jScrollPane4.setViewportView(ta_juego);
+
+        jToggleButton1.setBackground(new java.awt.Color(51, 51, 255));
+        jToggleButton1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jToggleButton1.setText("Resistencia");
+
+        jLabel13.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jLabel13.setText("Ataque:");
+
+        jToggleButton2.setBackground(new java.awt.Color(51, 51, 255));
+        jToggleButton2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jToggleButton2.setText("Mental");
+
+        jToggleButton3.setBackground(new java.awt.Color(51, 51, 255));
+        jToggleButton3.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jToggleButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jToggleButton3.setText("Fuerza");
+
+        jl_personaje.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
+        jl_personaje.setForeground(new java.awt.Color(0, 255, 0));
+        jl_personaje.setText("Personaje 1");
+
+        jl_regresar3.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        jl_regresar3.setForeground(new java.awt.Color(255, 255, 255));
+        jl_regresar3.setText("<< Regresar");
+        jl_regresar3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jl_regresar3MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jl_regresar3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jl_regresar3MouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 700, Short.MAX_VALUE)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addContainerGap(30, Short.MAX_VALUE)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jToggleButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                                .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
+                                .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jl_regresar3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jl_personaje)))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 500, Short.MAX_VALUE)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addContainerGap(24, Short.MAX_VALUE)
+                        .addComponent(jl_personaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jl_regresar3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jToggleButton1)
+                    .addComponent(jToggleButton2)
+                    .addComponent(jToggleButton3))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jf_gameLayout = new javax.swing.GroupLayout(jf_game.getContentPane());
@@ -577,6 +694,8 @@ public class Main extends javax.swing.JFrame {
             jf_gameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
+
+        jLabel14.setText("jLabel14");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -885,7 +1004,11 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jb_batallaActionPerformed
 
     private void jb_gameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_gameActionPerformed
-        game();
+        if (jList1.getSelectedIndex() >= 0&&jList2.getSelectedIndex() >= 0) {
+            game();
+        }
+        jl_personaje.setText(personaje1.getNombre());
+        
     }//GEN-LAST:event_jb_gameActionPerformed
 
     private void cb_personajeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_personajeItemStateChanged
@@ -921,6 +1044,57 @@ public class Main extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_cb_personaje2ItemStateChanged
+
+    private void jList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList1MouseClicked
+        if (jList1.getSelectedIndex() >= 0) {
+            String p = jList1.getSelectedValue();
+            for (Personajes t : personaje) {
+                if (p.equals(t.getNombre())) {
+                    personaje1 = t;
+                }
+            }
+//            personaje1 = ((Personajes) modeloLISTA.get(
+//                    jList1.getSelectedIndex()) );
+        }
+    }//GEN-LAST:event_jList1MouseClicked
+
+    private void jList2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jList2MouseClicked
+        if (jList2.getSelectedIndex() >= 0) {
+            String p = jList2.getSelectedValue();
+            for (Personajes t : personaje) {
+                if (p.equals(t.getNombre())) {
+                    personaje2 = t;
+                }
+            }
+        }
+    }//GEN-LAST:event_jList2MouseClicked
+
+    private void jl_regresar2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_regresar2MouseClicked
+        jl_regresar2.setForeground(Color.white);
+        jf_seleccion.dispose();
+        regresarmain();
+    }//GEN-LAST:event_jl_regresar2MouseClicked
+
+    private void jl_regresar2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_regresar2MouseEntered
+        jl_regresar2.setForeground(Color.blue);
+    }//GEN-LAST:event_jl_regresar2MouseEntered
+
+    private void jl_regresar2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_regresar2MouseExited
+        jl_regresar2.setForeground(Color.white);
+    }//GEN-LAST:event_jl_regresar2MouseExited
+
+    private void jl_regresar3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_regresar3MouseClicked
+        jl_regresar3.setForeground(Color.white);
+        regresarsim();
+    }//GEN-LAST:event_jl_regresar3MouseClicked
+
+    private void jl_regresar3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_regresar3MouseEntered
+        jl_regresar3.setForeground(Color.blue);
+    }//GEN-LAST:event_jl_regresar3MouseEntered
+
+    private void jl_regresar3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jl_regresar3MouseExited
+        jl_regresar3.setForeground(Color.white);
+    }//GEN-LAST:event_jl_regresar3MouseExited
 
     /**
      * @param args the command line arguments
@@ -963,6 +1137,14 @@ public class Main extends javax.swing.JFrame {
         //jf_listarpersonajes.setModal(true);
         //jf_listarpersonajes.setExtendedState(MAXIMIZED_BOTH);
         jf_listarpersonajes.setVisible(true);
+    }
+    
+    private void regresarsim(){
+        jf_game.dispose();
+        jf_seleccion.pack();
+        jf_seleccion.setLocationRelativeTo(this);
+        jf_seleccion.setExtendedState(MAXIMIZED_BOTH);
+        jf_seleccion.setVisible(true);
     }
     
     private void regresarmain(){
@@ -1074,6 +1256,8 @@ public class Main extends javax.swing.JFrame {
     ArrayList<Personajes> personaje = new ArrayList();
     DefaultMutableTreeNode nodo_seleccionado;
     Personajes personaje_seleccionado;
+    Personajes personaje1=null;
+    Personajes personaje2=null;
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1084,6 +1268,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -1106,8 +1292,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JButton jb_add;
     private javax.swing.JButton jb_agregarp;
     private javax.swing.JButton jb_batalla;
@@ -1118,8 +1308,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JFrame jf_listarpersonajes;
     private javax.swing.JFrame jf_seleccion;
     private javax.swing.JList<String> jl_infopersonaje;
+    private javax.swing.JLabel jl_personaje;
     private javax.swing.JLabel jl_regresar;
     private javax.swing.JLabel jl_regresar1;
+    private javax.swing.JLabel jl_regresar2;
+    private javax.swing.JLabel jl_regresar3;
     private javax.swing.JPanel jp_delpersonaje;
     private javax.swing.JPanel jp_listpersonaje;
     private javax.swing.JPanel jp_listpersonajes;
@@ -1130,6 +1323,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem mi_listar;
     private javax.swing.JMenuItem mi_modificar;
     private javax.swing.JPopupMenu pm_crud;
+    private javax.swing.JTextArea ta_juego;
     private javax.swing.JTable tb_personajes;
     private javax.swing.JTextField tf_agfisica;
     private javax.swing.JTextField tf_agmental;
