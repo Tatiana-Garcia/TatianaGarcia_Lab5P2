@@ -27,6 +27,7 @@ public class Main extends javax.swing.JFrame {
      * Creates new form Main
      */
     public Main() {
+        
         initComponents();
         this.setExtendedState(MAXIMIZED_BOTH);
         jt_personaje.setEditable(false);
@@ -99,10 +100,10 @@ public class Main extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         ta_juego = new javax.swing.JTextArea();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        jb_resistencia = new javax.swing.JToggleButton();
         jLabel13 = new javax.swing.JLabel();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
+        jb_mental = new javax.swing.JToggleButton();
+        jb_fisico = new javax.swing.JToggleButton();
         jl_personaje = new javax.swing.JLabel();
         jl_regresar3 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -599,23 +600,38 @@ public class Main extends javax.swing.JFrame {
         ta_juego.setRows(5);
         jScrollPane4.setViewportView(ta_juego);
 
-        jToggleButton1.setBackground(new java.awt.Color(51, 51, 255));
-        jToggleButton1.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setText("Resistencia");
+        jb_resistencia.setBackground(new java.awt.Color(51, 51, 255));
+        jb_resistencia.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jb_resistencia.setForeground(new java.awt.Color(255, 255, 255));
+        jb_resistencia.setText("Resistencia");
+        jb_resistencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_resistenciaActionPerformed(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel13.setText("Ataque:");
 
-        jToggleButton2.setBackground(new java.awt.Color(51, 51, 255));
-        jToggleButton2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton2.setText("Mental");
+        jb_mental.setBackground(new java.awt.Color(51, 51, 255));
+        jb_mental.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jb_mental.setForeground(new java.awt.Color(255, 255, 255));
+        jb_mental.setText("Mental");
+        jb_mental.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_mentalActionPerformed(evt);
+            }
+        });
 
-        jToggleButton3.setBackground(new java.awt.Color(51, 51, 255));
-        jToggleButton3.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
-        jToggleButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton3.setText("Fuerza");
+        jb_fisico.setBackground(new java.awt.Color(51, 51, 255));
+        jb_fisico.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
+        jb_fisico.setForeground(new java.awt.Color(255, 255, 255));
+        jb_fisico.setText("Fisico");
+        jb_fisico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_fisicoActionPerformed(evt);
+            }
+        });
 
         jl_personaje.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jl_personaje.setForeground(new java.awt.Color(0, 255, 0));
@@ -650,13 +666,14 @@ public class Main extends javax.swing.JFrame {
                         .addContainerGap(30, Short.MAX_VALUE)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addComponent(jToggleButton1)
+                                .addComponent(jb_resistencia)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
-                                .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jb_mental, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
-                                .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jb_fisico, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(jl_regresar3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jl_personaje)))
@@ -667,20 +684,21 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addContainerGap(24, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jl_personaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jl_regresar3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)))
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1)
-                    .addComponent(jToggleButton2)
-                    .addComponent(jToggleButton3))
+                    .addComponent(jb_resistencia)
+                    .addComponent(jb_mental)
+                    .addComponent(jb_fisico))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
@@ -1008,6 +1026,7 @@ public class Main extends javax.swing.JFrame {
             game();
         }
         jl_personaje.setText(personaje1.getNombre());
+        jl_personaje.setForeground(Color.green);
         
     }//GEN-LAST:event_jb_gameActionPerformed
 
@@ -1096,6 +1115,163 @@ public class Main extends javax.swing.JFrame {
         jl_regresar3.setForeground(Color.white);
     }//GEN-LAST:event_jl_regresar3MouseExited
 
+    private void jb_resistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_resistenciaActionPerformed
+        String s1 =jl_personaje.getText();
+        String s2 = personaje1.getNombre();
+        String s3 = personaje2.getNombre();
+        if (personaje1.getVida()>0&&personaje2.getVida()>0) {
+            if (s1.equals(s2)) {
+                //personaje1
+                double vida = personaje1.getVida()*0.15;
+                personaje1.setVida(personaje1.getVida()+vida);
+
+                double vida2 = personaje1.getFuerza()*0.15;
+                personaje2.setVida(personaje2.getVida()-vida2);
+
+                area+= "\n Ataco "+personaje1.getNombre()+"\n Vida: "+personaje1.getVida()
+                        +"\n Vida de "+personaje2.getNombre()+": "+personaje2.getVida();
+                ta_juego.setText(area);
+                //Colorear
+                ataque1=1;
+                if (ataque2==0) {
+                    jl_personaje.setText(personaje2.getNombre());
+                    jl_personaje.setForeground(Color.red);
+                }else{
+                    ataque2=0;
+                }
+                if (personaje2.getVida()<=0) {
+                    area+="\n\n"+personaje1.getNombre()+" ha ganado";
+                }
+
+
+            }
+            if (s1.equals(s3)) {
+                //personaje2
+
+                double vida = personaje2.getVida()*0.15;
+                personaje2.setVida(personaje2.getVida()+vida);
+
+                double vida2 = personaje2.getFuerza()*0.15;
+                personaje1.setVida(personaje1.getVida()-vida2);
+
+                area+= "\n Ataco "+personaje2.getNombre()+"\n Vida: "+personaje2.getVida()
+                        +"\nVida de "+personaje1.getNombre()+": "+personaje1.getVida();
+                ta_juego.setText(area);
+
+                //Colorear
+                ataque2=1;
+                if (ataque1==0) {
+                    jl_personaje.setText(personaje1.getNombre());
+                    jl_personaje.setForeground(Color.green);
+                }else{
+                    ataque1=0;
+                }
+                if (personaje1.getVida()<=0) {
+                    area+="\n\n"+personaje2.getNombre()+" ha ganado";
+                }
+
+
+            }
+        }
+            
+        
+    }//GEN-LAST:event_jb_resistenciaActionPerformed
+
+    private void jb_mentalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_mentalActionPerformed
+        String s1 =jl_personaje.getText();
+        String s2 = personaje1.getNombre();
+        String s3 = personaje2.getNombre();
+        if (personaje1.getVida()>0&&personaje2.getVida()>0) {
+            if (s1.equals(s2)) {
+                double vida = personaje1.getAg_mental()*0.3;
+                personaje2.setVida(personaje2.getVida()-vida);
+
+                area+= "\n Ataco "+personaje1.getNombre()+"a "+personaje2.getNombre()
+                        +"\n Cuya vida quedo en:  "+personaje2.getVida()
+                        +"\n Ataque Mental: "+vida;
+                ta_juego.setText(area);
+
+                //Colorear
+                if (ataque2==0) {
+                    jl_personaje.setText(personaje2.getNombre());
+                    jl_personaje.setForeground(Color.red);
+                }else{
+                ataque2=0;}
+                if (personaje2.getVida()<=0) {
+                    area+="\n\n"+personaje1.getNombre()+" ha ganado";
+                }
+            }
+            if (s1.equals(s3)) {
+                double vida = personaje2.getAg_mental()*0.15;
+                personaje1.setVida(personaje1.getVida()-vida);
+
+                area+= "\n Ataco "+personaje2.getNombre()+"a "+personaje1.getNombre()
+                        +"\n Cuya vida quedo en:  "+personaje1.getVida()
+                        +"\n Ataque Mental: "+vida;
+                ta_juego.setText(area);
+
+                //Colorear
+                if (ataque1==0) {
+                    jl_personaje.setText(personaje1.getNombre());
+                    jl_personaje.setForeground(Color.green);
+                }else{
+                ataque1=0;}
+                if (personaje1.getVida()<=0) {
+                    area+="\n\n"+personaje2.getNombre()+" ha ganado";
+                }
+
+            }
+        }
+            
+    }//GEN-LAST:event_jb_mentalActionPerformed
+
+    private void jb_fisicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_fisicoActionPerformed
+        String s1 =jl_personaje.getText();
+        String s2 = personaje1.getNombre();
+        String s3 = personaje2.getNombre();
+        if (personaje1.getVida()>0&&personaje2.getVida()>0) {
+            if (s1.equals(s2)) {
+                double vida = personaje1.getAg_fisica()/2;
+                personaje2.setVida(personaje2.getVida()-vida);
+
+                area+= "\n Ataco "+personaje1.getNombre()+"a "+personaje2.getNombre()
+                        +"\n Cuya vida quedo en:  "+personaje2.getVida()
+                        +"\n Ataque fisico: "+vida;
+                ta_juego.setText(area);
+
+                if (ataque2==0) {
+                    jl_personaje.setText(personaje2.getNombre());
+                    jl_personaje.setForeground(Color.red);
+                }else{
+                    ataque2=0;
+                }
+                if (personaje2.getVida()<=0) {
+                    area+="\n\n"+personaje1.getNombre()+" ha ganado";
+                }
+            }
+            if (s1.equals(s3)) {
+                double vida = personaje2.getAg_fisica()/2;
+                personaje1.setVida(personaje1.getVida()-vida);
+
+                area+= "\n Ataco "+personaje2.getNombre()+"a "+personaje1.getNombre()
+                        +"\n Cuya vida quedo en:  "+personaje1.getVida()
+                        +"\n Ataque fisico: "+vida;
+                ta_juego.setText(area);
+
+                if (ataque1==0) {
+                    jl_personaje.setText(personaje1.getNombre());
+                    jl_personaje.setForeground(Color.green);
+                }else{
+                    ataque1=0;
+                }
+                if (personaje1.getVida()<=0) {
+                    area+="\n\n"+personaje2.getNombre()+" ha ganado";
+                }
+            }
+        }
+            
+    }//GEN-LAST:event_jb_fisicoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1121,7 +1297,7 @@ public class Main extends javax.swing.JFrame {
     }
     private void game(){
         this.dispose();
-        
+        area="";
         jf_game.pack();//para que la ventana se abra correctamente
         jf_game.setLocationRelativeTo(this);
         jf_game.setExtendedState(MAXIMIZED_BOTH);
@@ -1258,6 +1434,9 @@ public class Main extends javax.swing.JFrame {
     Personajes personaje_seleccionado;
     Personajes personaje1=null;
     Personajes personaje2=null;
+    int ataque1=0;//0 = no, 1 = si
+    int ataque2=0;//0 = no, 1 = si
+    String area="";
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1295,14 +1474,14 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JButton jb_add;
     private javax.swing.JButton jb_agregarp;
     private javax.swing.JButton jb_batalla;
+    private javax.swing.JToggleButton jb_fisico;
     private javax.swing.JButton jb_game;
     private javax.swing.JButton jb_listarp;
+    private javax.swing.JToggleButton jb_mental;
+    private javax.swing.JToggleButton jb_resistencia;
     private javax.swing.JFrame jf_agregarpersonajes;
     private javax.swing.JFrame jf_game;
     private javax.swing.JFrame jf_listarpersonajes;
