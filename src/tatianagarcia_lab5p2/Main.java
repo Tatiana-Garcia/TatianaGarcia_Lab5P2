@@ -83,6 +83,19 @@ public class Main extends javax.swing.JFrame {
         mi_listar = new javax.swing.JMenuItem();
         mi_modificar = new javax.swing.JMenuItem();
         mi_eliminar = new javax.swing.JMenuItem();
+        jf_seleccion = new javax.swing.JFrame();
+        jPanel7 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        cb_personaje = new javax.swing.JComboBox<>();
+        cb_personaje2 = new javax.swing.JComboBox<>();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
+        jb_game = new javax.swing.JButton();
+        jf_game = new javax.swing.JFrame();
+        jPanel9 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -338,19 +351,19 @@ public class Main extends javax.swing.JFrame {
         jp_listpersonaje.setLayout(jp_listpersonajeLayout);
         jp_listpersonajeLayout.setHorizontalGroup(
             jp_listpersonajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jp_listpersonajeLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jp_listpersonajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3)
-                    .addComponent(jt_personaje))
-                .addContainerGap(353, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_listpersonajeLayout.createSequentialGroup()
+                .addContainerGap(203, Short.MAX_VALUE)
+                .addGroup(jp_listpersonajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jt_personaje, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(162, 162, 162))
         );
         jp_listpersonajeLayout.setVerticalGroup(
             jp_listpersonajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jp_listpersonajeLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addGap(31, 31, 31)
                 .addComponent(jt_personaje, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(44, Short.MAX_VALUE))
         );
@@ -438,6 +451,133 @@ public class Main extends javax.swing.JFrame {
         });
         pm_crud.add(mi_eliminar);
 
+        jPanel7.setBackground(new java.awt.Color(0, 0, 0));
+
+        jPanel8.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel12.setText("Simulación de Batalla");
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel12, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        cb_personaje.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DC", "Marvel", "Capcom", "Midway Games" }));
+        cb_personaje.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_personajeItemStateChanged(evt);
+            }
+        });
+
+        cb_personaje2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "DC", "Marvel", "Capcom", "Midway Games" }));
+        cb_personaje2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_personaje2ItemStateChanged(evt);
+            }
+        });
+
+        jList1.setModel(new DefaultListModel());
+        jScrollPane5.setViewportView(jList1);
+
+        jList2.setModel(new DefaultListModel());
+        jScrollPane6.setViewportView(jList2);
+
+        jb_game.setBackground(new java.awt.Color(255, 0, 51));
+        jb_game.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        jb_game.setForeground(new java.awt.Color(255, 255, 255));
+        jb_game.setText("Game");
+        jb_game.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_gameActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap(57, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(57, Short.MAX_VALUE))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cb_personaje, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cb_personaje2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jb_game)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cb_personaje, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cb_personaje2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 48, Short.MAX_VALUE)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane5)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(jb_game)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jf_seleccionLayout = new javax.swing.GroupLayout(jf_seleccion.getContentPane());
+        jf_seleccion.getContentPane().setLayout(jf_seleccionLayout);
+        jf_seleccionLayout.setHorizontalGroup(
+            jf_seleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jf_seleccionLayout.setVerticalGroup(
+            jf_seleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jPanel9.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 700, Short.MAX_VALUE)
+        );
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 500, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jf_gameLayout = new javax.swing.GroupLayout(jf_game.getContentPane());
+        jf_game.getContentPane().setLayout(jf_gameLayout);
+        jf_gameLayout.setHorizontalGroup(
+            jf_gameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jf_gameLayout.setVerticalGroup(
+            jf_gameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -487,6 +627,11 @@ public class Main extends javax.swing.JFrame {
         jb_batalla.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jb_batalla.setForeground(new java.awt.Color(204, 204, 204));
         jb_batalla.setText("Simulación de Batalla");
+        jb_batalla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jb_batallaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -670,6 +815,7 @@ public class Main extends javax.swing.JFrame {
             
             jt_personaje.setText(personaje_seleccionado.getNombre());
             //DefaultListModel modelo = (DefaultListModel) jl_infopersonaje.getModel();
+            DefaultListModel<String> listModel =new DefaultListModel<>();
             
             String s="\nPoder ->"+personaje_seleccionado.getPoder();
             listModel.addElement(s);
@@ -718,21 +864,69 @@ public class Main extends javax.swing.JFrame {
                 JOptionPane.QUESTION_MESSAGE);
 
         if (response == JOptionPane.OK_OPTION) {
+            personaje_seleccionado = (Personajes) nodo_seleccionado.getUserObject();
             DefaultTreeModel m
                     = (DefaultTreeModel) jt_personajes.getModel();
             m.removeNodeFromParent(
                     nodo_seleccionado);
             m.reload();
             for (int i = 0; i < personaje.size(); i++) {
-                
+                Personajes p = personaje.get(i);
+                if (p.getNombre().equals(personaje_seleccionado.getNombre())) {
+                    personaje.remove(i);
+                }
             }
         }
         
     }//GEN-LAST:event_mi_eliminarActionPerformed
 
+    private void jb_batallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_batallaActionPerformed
+        simulacion();
+    }//GEN-LAST:event_jb_batallaActionPerformed
+
+    private void jb_gameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jb_gameActionPerformed
+        game();
+    }//GEN-LAST:event_jb_gameActionPerformed
+
+    private void cb_personajeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_personajeItemStateChanged
+        if (evt.getStateChange()==2) {
+            String s = cb_personaje.getSelectedItem().toString();
+            DefaultListModel modelo
+                    = (DefaultListModel) jList1.getModel();
+            modelo.removeAllElements();
+            for (int i = 0; i < personaje.size(); i++) {
+                String p = personaje.get(i).getUniverso();
+                if (p.equals(s)) {
+                    modelo.addElement(personaje.get(i).getNombre()
+                    );
+                    jList1.setModel(modelo);
+                }
+            }
+        }
+    }//GEN-LAST:event_cb_personajeItemStateChanged
+
+    private void cb_personaje2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_personaje2ItemStateChanged
+        if (evt.getStateChange()==2) {
+            String s = cb_personaje2.getSelectedItem().toString();
+            DefaultListModel modelo
+                    = (DefaultListModel) jList2.getModel();
+            modelo.removeAllElements();
+            for (int i = 0; i < personaje.size(); i++) {
+                String p = personaje.get(i).getUniverso();
+                if (p.equals(s)) {
+                    modelo.addElement(personaje.get(i).getNombre()
+                    );
+                    jList2.setModel(modelo);
+                }
+            }
+        }
+    }//GEN-LAST:event_cb_personaje2ItemStateChanged
+
     /**
      * @param args the command line arguments
      */
+    
+    
     private void agregarpersonaje (){
         this.dispose();
         
@@ -741,6 +935,24 @@ public class Main extends javax.swing.JFrame {
         jf_agregarpersonajes.setExtendedState(MAXIMIZED_BOTH);
         //jf_agregarpersonajes.setModal(true);//hacer prioridad la ventana
         jf_agregarpersonajes.setVisible(true);
+    }
+    private void simulacion (){
+        this.dispose();
+        
+        jf_seleccion.pack();//para que la ventana se abra correctamente
+        jf_seleccion.setLocationRelativeTo(this);
+        jf_seleccion.setExtendedState(MAXIMIZED_BOTH);
+        //jf_agregarpersonajes.setModal(true);//hacer prioridad la ventana
+        jf_seleccion.setVisible(true);
+    }
+    private void game(){
+        this.dispose();
+        
+        jf_game.pack();//para que la ventana se abra correctamente
+        jf_game.setLocationRelativeTo(this);
+        jf_game.setExtendedState(MAXIMIZED_BOTH);
+        //jf_agregarpersonajes.setModal(true);//hacer prioridad la ventana
+        jf_game.setVisible(true);
     }
     
     private void listarpersonaje (){
@@ -862,13 +1074,16 @@ public class Main extends javax.swing.JFrame {
     ArrayList<Personajes> personaje = new ArrayList();
     DefaultMutableTreeNode nodo_seleccionado;
     Personajes personaje_seleccionado;
-    DefaultListModel<String> listModel =new DefaultListModel<>();
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cb_personaje;
+    private javax.swing.JComboBox<String> cb_personaje2;
     private javax.swing.JComboBox cb_universo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -877,21 +1092,31 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jList2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JButton jb_add;
     private javax.swing.JButton jb_agregarp;
     private javax.swing.JButton jb_batalla;
+    private javax.swing.JButton jb_game;
     private javax.swing.JButton jb_listarp;
     private javax.swing.JFrame jf_agregarpersonajes;
+    private javax.swing.JFrame jf_game;
     private javax.swing.JFrame jf_listarpersonajes;
+    private javax.swing.JFrame jf_seleccion;
     private javax.swing.JList<String> jl_infopersonaje;
     private javax.swing.JLabel jl_regresar;
     private javax.swing.JLabel jl_regresar1;
